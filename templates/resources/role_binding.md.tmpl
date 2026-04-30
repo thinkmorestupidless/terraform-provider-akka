@@ -1,0 +1,37 @@
+---
+page_title: "akka_role_binding Resource - Akka"
+description: |-
+  Grants a user a role within a project or organization.
+---
+
+# akka_role_binding
+
+Grants a user a named role at either project or organization scope on the Akka platform.
+
+## Supported Roles
+
+- `developer` — read/write access to project resources
+- `admin` — full administrative access
+- `viewer` — read-only access
+
+## Example Usage
+
+{{ tffile "examples/resources/akka_role_binding/resource.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+**Project-scoped binding** — `<project>/<user>/<role>`:
+
+```shell
+terraform import akka_role_binding.dev_alice my-project/alice@example.com/developer
+```
+
+**Organization-scoped binding** — `organization/<user>/<role>`:
+
+```shell
+terraform import akka_role_binding.org_admin organization/bob@example.com/admin
+```

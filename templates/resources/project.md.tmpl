@@ -1,0 +1,26 @@
+---
+page_title: "akka_project Resource - Akka"
+description: |-
+  Creates and manages an Akka project.
+---
+
+# akka_project
+
+Creates and manages an Akka project. A project is the top-level container for services, secrets,
+routes, and role bindings on the Akka platform.
+
+## Example Usage
+
+{{ tffile "examples/resources/akka_project/resource.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import an existing project by its name:
+
+```shell
+terraform import akka_project.example my-project-name
+```

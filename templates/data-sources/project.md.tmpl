@@ -1,0 +1,28 @@
+---
+page_title: "akka_project Data Source - Akka"
+description: |-
+  Reads an existing Akka project.
+---
+
+# akka_project (Data Source)
+
+Reads an existing Akka project by name. Use this data source to reference a project that was
+created outside of Terraform or in a different Terraform workspace.
+
+## Example Usage
+
+```hcl
+data "akka_project" "prod" {
+  name = "production"
+}
+
+resource "akka_service" "api" {
+  name    = "api-service"
+  project = data.akka_project.prod.name
+  image   = "docker.io/myorg/api:latest"
+}
+```
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}

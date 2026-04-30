@@ -1,0 +1,18 @@
+---
+page_title: "akka_regions Data Source - Akka"
+description: |-
+  Lists all available Akka deployment regions.
+---
+
+# akka_regions (Data Source)
+
+Lists all regions where Akka projects can be deployed. Use this data source to discover valid
+`region` values for `akka_project` resources or to validate region inputs.
+
+## Example Usage
+
+{{ tffile "examples/provider-install-verification/main.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}

@@ -1,0 +1,27 @@
+---
+page_title: "akka_hostname Resource - Akka"
+description: |-
+  Registers a custom hostname on the Akka platform.
+---
+
+# akka_hostname
+
+Registers a custom hostname for a project on the Akka platform. After registration, point your
+DNS `CNAME` record to the value provided by the Akka platform, then attach a TLS secret to
+enable HTTPS.
+
+## Example Usage
+
+{{ tffile "examples/resources/akka_hostname/resource.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import an existing hostname using `<project>/<hostname>`:
+
+```shell
+terraform import akka_hostname.api_domain my-project/api.example.com
+```

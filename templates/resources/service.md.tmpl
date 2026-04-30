@@ -1,0 +1,37 @@
+---
+page_title: "akka_service Resource - Akka"
+description: |-
+  Deploys and manages an Akka service (container workload).
+---
+
+# akka_service
+
+Deploys and manages an Akka service. A service is a container workload running inside an Akka
+project. The provider waits for the service to reach `Ready` status before marking the resource
+as created.
+
+## Timeouts
+
+The `timeouts` block controls how long the provider waits during service lifecycle operations:
+
+| Operation | Default  |
+|-----------|----------|
+| `create`  | 20m      |
+| `update`  | 20m      |
+| `delete`  | 10m      |
+
+## Example Usage
+
+{{ tffile "examples/resources/akka_service/resource.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import an existing service using `<project>/<name>`:
+
+```shell
+terraform import akka_service.api my-project/api-service
+```
