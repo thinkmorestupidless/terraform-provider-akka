@@ -1,0 +1,46 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Terraform provider build output
+terraform-provider-akka
+terraform-provider-akka_*
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# GoReleaser
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# Editor
+.vscode/
+.idea/
+*.iml
+
+# Env
+.env
+.env.*

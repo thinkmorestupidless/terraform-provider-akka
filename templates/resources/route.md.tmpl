@@ -1,0 +1,26 @@
+---
+page_title: "akka_route Resource - Akka"
+description: |-
+  Creates and manages an Akka traffic route.
+---
+
+# akka_route
+
+Creates and manages an Akka route. A route maps HTTP path prefixes on a hostname to Akka services,
+enabling path-based traffic routing within a project.
+
+## Example Usage
+
+{{ tffile "examples/resources/akka_route/resource.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import an existing route using `<project>/<name>`:
+
+```shell
+terraform import akka_route.api my-project/api-route
+```

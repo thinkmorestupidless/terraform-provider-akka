@@ -1,0 +1,56 @@
+---
+page_title: "Provider: Akka"
+description: |-
+  The Akka provider manages resources on the Akka Serverless platform using the akka CLI.
+---
+
+# Akka Provider
+
+The Akka provider lets you manage [Akka platform](https://akka.io) resources — projects, services,
+secrets, traffic routes, hostnames, and role bindings — using Terraform.
+
+All operations are performed via the `akka` CLI binary, which must be installed and available in
+your `PATH` before you can use this provider.
+
+## Install the akka CLI
+
+```shell
+curl -sL https://doc.akka.io/install-cli.sh | bash
+```
+
+Verify the installation:
+
+```shell
+akka version
+```
+
+## Authentication
+
+The provider authenticates with the Akka platform using an API token.
+
+**Recommended**: set the `AKKA_TOKEN` environment variable.
+
+```shell
+export AKKA_TOKEN="your-api-token"
+```
+
+Alternatively, pass the token directly in the provider block (not recommended for shared configs):
+
+```hcl
+provider "akka" {
+  organization = "my-org"
+  token        = "your-api-token"   # prefer AKKA_TOKEN env var instead
+}
+```
+
+## Example Usage
+
+{{ tffile "examples/provider-install-verification/main.tf" }}
+
+## Complete Example
+
+{{ tffile "examples/complete/main.tf" }}
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
