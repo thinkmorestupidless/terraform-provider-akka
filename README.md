@@ -140,6 +140,38 @@ Releases are built with [GoReleaser](https://goreleaser.com) for five platforms:
 goreleaser build --snapshot --clean   # local snapshot build
 ```
 
+Pushing a `v*` tag triggers the [release workflow](.github/workflows/release.yml), which builds all platforms, signs the artifacts, and creates a GitHub Release. The Terraform Registry picks up new releases automatically.
+
+### Publishing to the Terraform Registry
+
+One-time setup:
+
+1. **Generate a GPG key pair** (if you don't have one):
+
+   ```shell
+   gpg --full-generate-key   # RSA 4096, no expiry recommended
+   gpg --list-secret-keys --keyid-format LONG
+   gpg --armor --export-secret-keys YOUR_KEY_ID > private.key
+   gpg --armor --export YOUR_KEY_ID > public.key
+   ```
+
+2. **Add GitHub secrets** in _Settings → Secrets and variables → Actions_:
+   - `GPG_PRIVATE_KEY` — contents of `private.key`
+   - `GPG_PASSPHRASE` — the passphrase you set on the key
+
+3. **Sign in to [registry.terraform.io](https://registry.terraform.io)** with your GitHub account.
+
+4. **Add the GPG public key** under your account's _Signing Keys_ (`public.key` contents).
+
+5. **Publish the provider** — click _Publish → Provider_, select the `terraform-provider-akka` repository.
+
+After that, tagging a release is all that's needed:
+
+```shell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
 ## License
 
 [Mozilla Public License 2.0](LICENSE)
