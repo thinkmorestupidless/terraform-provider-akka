@@ -19,7 +19,7 @@ terraform {
   required_providers {
     akka = {
       source  = "thinkmorestupidless/akka"
-      version = "~> 0.1"
+      version = "~> 0.2"
     }
   }
 }
@@ -172,8 +172,8 @@ One-time setup:
 After that, tagging a release is all that's needed:
 
 ```shell
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.2.0
+git push origin v0.2.0
 ```
 
 ## License
