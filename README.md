@@ -159,11 +159,15 @@ One-time setup:
    - `GPG_PRIVATE_KEY` — contents of `private.key`
    - `GPG_PASSPHRASE` — the passphrase you set on the key
 
-3. **Sign in to [registry.terraform.io](https://registry.terraform.io)** with your GitHub account.
+3. **Create or sign in to a [HashiCorp Cloud Platform](https://cloud.hashicorp.com) account** (email/password). The Terraform Registry uses HCP accounts, not direct GitHub login.
 
-4. **Add the GPG public key** under your account's _Signing Keys_ (`public.key` contents).
+4. **Link your GitHub account** — in HCP account settings, connect your GitHub account so the Registry can access your repositories.
 
-5. **Publish the provider** — click _Publish → Provider_, select the `terraform-provider-akka` repository.
+5. **Sign in to [registry.terraform.io](https://registry.terraform.io)** with your HCP account.
+
+6. **Add the GPG public key** under your account's _Signing Keys_ (`public.key` contents).
+
+7. **Publish the provider** — click _Publish → Provider_, select the `terraform-provider-akka` repository.
 
 After that, tagging a release is all that's needed:
 
