@@ -35,6 +35,9 @@ checksum:
 signs:
   - artifacts: checksum
     args:
+      - "--batch"
+      - "--passphrase"
+      - "{{ .Env.GPG_PASSPHRASE }}"
       - "--pinentry-mode"
       - "loopback"
       - "--local-user"
